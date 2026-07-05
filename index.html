@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasar Ikan Simeulue - Ekspor Global</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">🐟 Simeulue Fish Market</div>
+        <nav>
+            <a href="#katalog">Katalog Ikan</a>
+            <a href="#order">Form Pesanan</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Ikan Segar Simeulue, Menembus Pasar Dunia</h1>
+        <p>Dari samudra murni Pulau Simeulue, langsung ke meja makan Anda di seluruh belahan dunia.</p>
+    </section>
+
+    <section id="katalog" class="katalog-container">
+        <h2>Katalog Unggulan</h2>
+        <div class="grid-ikan">
+            <div class="card-ikan">
+                <h3>Ikan Tuna Sirip Kuning</h3>
+                <p>Kualitas ekspor, daging segar & tebal.</p>
+                <span class="harga">Rp 85.000 / Kg</span>
+                <button onclick="pilihIkan('Tuna Sirip Kuning', 85000)">Pesan Sekarang</button>
+            </div>
+            <div class="card-ikan">
+                <h3>Lobster Mutiara Simeulue</h3>
+                <p>Lobster tangkapan liar super premium.</p>
+                <span class="harga">Rp 250.000 / Kg</span>
+                <button onclick="pilihIkan('Lobster Mutiara', 250000)">Pesan Sekarang</button>
+            </div>
+            <div class="card-ikan">
+                <h3>Ikan Kerapu Macan</h3>
+                <p>Sangat diminati pasar Asia dan internasional.</p>
+                <span class="harga">Rp 120.000 / Kg</span>
+                <button onclick="pilihIkan('Kerapu Macan', 120000)">Pesan Sekarang</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="order" class="form-section">
+        <h2>Formulir Pembelian (Koneksi Database Excel)</h2>
+        <form id="formBeli">
+            <label>Nama Pembeli:</label>
+            <input type="text" id="nama" required placeholder="Nama lengkap / Nama Perusahaan">
+
+            <label>Ikan yang Dipilih:</label>
+            <input type="text" id="ikanPilihan" readonly required placeholder="Klik tombol 'Pesan Sekarang' di katalog">
+
+            <label>Jumlah (Kg):</label>
+            <input type="number" id="jumlah" min="1" value="1" oninput="hitungTotal()" required>
+
+            <label>Total Harga (Rp):</label>
+            <input type="text" id="totalHarga" readonly value="0">
+
+            <button type="submit">Kirim Pesanan ke Database</button>
+        </form>
+        <div id="notifikasi"></div>
+    </section>
+
+    <div class="chat-ai-container">
+        <div class="chat-header" onclick="toggleChat()">🤖 AI Simeulue Assistant (Tanya Saya)</div>
+        <div class="chat-body" id="chatBody">
+            <div class="pesan bot">Halo! Saya AI dari Simeulue. Ada yang bisa saya bantu tentang stok atau ekspor ikan hari ini?</div>
+        </div>
+        <div class="chat-footer" id="chatFooter">
+            <input type="text" id="inputChat" placeholder="Ketik pesan untuk AI Colab...">
+            <button onclick="kirimKeAI()">Kirim</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
